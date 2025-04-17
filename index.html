@@ -21,6 +21,17 @@
   </style>
 </head>
 <body>
-  <img src="./graphique.png?nocache=<?= Date.now() ?>" alt="Jauge de progression" />
+  <img id="jauge" src="graphique.png" alt="Jauge de progression" />
+
+  <script>
+    const img = document.getElementById("jauge");
+    
+    function updateImage() {
+      img.src = `graphique.png?nocache=${Date.now()}`;
+    }
+
+    updateImage(); // recharge initial
+    setInterval(updateImage, 30000); // toutes les 30 secondes
+  </script>
 </body>
 </html>
